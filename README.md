@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio Profissional
 
-## Getting Started
+Website de portfólio profissional desenvolvido para o Laboratório 1 — Projeto de Software (PUC Minas, Engenharia de Software, 2º semestre/2026). Site bilíngue (PT/EN), responsivo, com seções de Sobre Mim, Projetos, Experiências e Contato (com envio de e-mail via back-end próprio).
 
-First, run the development server:
+> 🔗 **Site publicado:** `<< adicionar link da hospedagem aqui após o deploy >>`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sumário
+
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Dependências e bibliotecas](#dependências-e-bibliotecas)
+- [Estrutura de diretórios](#estrutura-de-diretórios)
+- [Como rodar localmente](#como-rodar-localmente)
+- [Configuração do formulário de contato](#configuração-do-formulário-de-contato)
+- [Deploy](#deploy)
+- [Personalizando este modelo](#personalizando-este-modelo)
+
+## Tecnologias utilizadas
+
+- **[Next.js 16](https://nextjs.org/)** (App Router) — framework React fullstack, usado tanto para o front-end quanto para o back-end (API Route de contato).
+- **[React 19](https://react.dev/)** — biblioteca de UI.
+- **[TypeScript](https://www.typescriptlang.org/)** — tipagem estática.
+- **[Tailwind CSS 4](https://tailwindcss.com/)** — estilização utilitária, tema claro/escuro e responsividade.
+- **[Resend](https://resend.com/)** — envio de e-mails a partir da API Route `/api/contact` (back-end).
+
+## Dependências e bibliotecas
+
+| Pacote | Tipo | Finalidade |
+| --- | --- | --- |
+| `next` | dependência | Framework (roteamento, SSR, API routes) |
+| `react` / `react-dom` | dependência | Biblioteca de UI |
+| `resend` | dependência | Cliente para envio de e-mails no back-end |
+| `typescript` | devDependency | Tipagem estática |
+| `tailwindcss` / `@tailwindcss/postcss` | devDependency | Estilização |
+| `eslint` / `eslint-config-next` | devDependency | Lint de código |
+| `@types/*` | devDependency | Tipos para Node e React |
+
+Lista completa e versões exatas em [`package.json`](./package.json).
+
+## Estrutura de diretórios
+
+```
+portifolio_modelo/
+├── public/
+│   └── images/projects/     # imagens/GIFs dos projetos (adicione os seus aqui)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx        # layout raiz (fontes, providers, header, footer)
+│   │   ├── page.tsx           # página "Sobre Mim" (rota "/")
+│   │   ├── globals.css        # tema (cores, dark mode) e estilos globais
+│   │   ├── projetos/
+│   │   │   └── page.tsx       # página "Projetos" (timeline)
+│   │   ├── experiencias/
+│   │   │   └── page.tsx       # página "Experiências"
+│   │   ├── contato/
+│   │   │   └── page.tsx       # página "Contato" (ícones + formulário)
+│   │   └── api/
+│   │       └── contact/
+│   │           └── route.ts   # back-end: recebe o form e envia e-mail via Resend
+│   ├── components/            # componentes de UI reutilizáveis (Header, Footer, ícones, form...)
+│   ├── context/                # Context API: idioma (PT/EN) e tema (claro/escuro)
+│   ├── data/                   # conteúdo do site: textos (i18n), projetos e experiências
+│   └── lib/                    # tipos e funções utilitárias (formatação de datas, etc.)
+├── .env.example                 # variáveis de ambiente necessárias (copiar para .env.local)
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como rodar localmente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pré-requisitos: [Node.js 20+](https://nodejs.org/) e npm.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1. Clonar o repositório
+git clone <url-do-seu-repositorio>
+cd portifolio_modelo
 
-## Learn More
+# 2. Instalar as dependências
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# 3. Configurar variáveis de ambiente (opcional, necessário só para o formulário de contato)
+cp .env.example .env.local
+# edite .env.local com sua RESEND_API_KEY e CONTACT_EMAIL_TO
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 4. Rodar o servidor de desenvolvimento
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O site estará disponível em [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+Outros scripts disponíveis:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build   # build de produção
+npm run start   # roda o build de produção localmente
+npm run lint    # checagem de lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuração do formulário de contato
+
+O formulário da página **Contato** envia os dados para a API Route `src/app/api/contact/route.ts`, que usa o [Resend](https://resend.com/) para disparar um e-mail. Para funcionar:
+
+1. Crie uma conta gratuita em [resend.com](https://resend.com/) e gere uma API key.
+2. No `.env.local` (local) ou nas variáveis de ambiente do serviço de hospedagem (produção), defina:
+   - `RESEND_API_KEY` — sua chave de API do Resend.
+   - `CONTACT_EMAIL_TO` — o e-mail que deve receber as mensagens.
+3. Sem essas variáveis configuradas, o formulário exibe uma mensagem de erro amigável (o restante do site continua funcionando normalmente, e os ícones de contato direto — e-mail, WhatsApp, LinkedIn, GitHub — seguem funcionando).
+
+## Deploy
+
+Este projeto pode ser publicado gratuitamente em qualquer serviço com suporte a Next.js, como [Vercel](https://vercel.com/), [Render](https://render.com/) ou [Fly.io](https://fly.io/):
+
+1. Suba o repositório para o GitHub.
+2. Importe o projeto no serviço escolhido.
+3. Configure as variáveis de ambiente `RESEND_API_KEY` e `CONTACT_EMAIL_TO`.
+4. Faça o deploy e atualize o link no topo deste README.
+
+## Personalizando este modelo
+
+Este repositório foi estruturado como um **modelo** de portfólio. Para adaptar aos seus dados:
+
+- `src/data/content.ts` — nome, cargo, e-mail, WhatsApp, LinkedIn, GitHub e todos os textos (PT/EN) do site.
+- `src/data/projects.ts` — seus projetos (nome, descrição, tecnologias, link do repositório, data).
+- `src/data/experiences.ts` — suas experiências profissionais/acadêmicas.
+- `public/images/projects/` — imagens ou GIFs dos projetos em funcionamento; referencie o caminho no campo `image` de cada projeto em `projects.ts`.

@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eef1f4;
+  --foreground: #10161f;
+  --surface: #ffffff;
+  --surface-muted: #e4e8ec;
+  --border: #d3d9df;
+  --muted: #5b6672;
+  --accent: #1d5fd6;
+  --accent-foreground: #ffffff;
+  --accent-soft: #dfe9fb;
+  --grid-line: rgba(16, 22, 31, 0.07);
+}
+
+.dark {
+  --background: #0c1119;
+  --foreground: #eef1f5;
+  --surface: #121a24;
+  --surface-muted: #17202b;
+  --border: #223040;
+  --muted: #8996a5;
+  --accent: #5b8def;
+  --accent-foreground: #071019;
+  --accent-soft: rgba(91, 141, 239, 0.14);
+  --grid-line: rgba(238, 241, 245, 0.07);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Corner-bracket frame: a technical-drawing crop mark applied to key panels. */
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--accent), var(--accent)) top left / 14px 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) top left / 2px 14px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) top right / 14px 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) top right / 2px 14px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 14px 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 2px 14px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 14px 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 2px 14px no-repeat;
+}
+
+/* Faint graph-paper texture for blueprint-style panels. */
+.dot-grid {
+  background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
