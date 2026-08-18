@@ -21,7 +21,6 @@ Website de portfólio profissional desenvolvido para o Laboratório 1 — Projet
 | Item | Status |
 | --- | --- |
 | Criação do repositório GitHub com README inicial | ✅ Feito |
-| Wireframes das páginas no Figma (média fidelidade) | ⬜ Pendente — adicionar link do Figma aqui |
 | Protótipo inicial do front-end (Next.js/React + Tailwind CSS) | ✅ Feito |
 | Implementação da navegação (estrutura de páginas e links entre seções) | ✅ Feito — ver [Header](./src/components/header.tsx) |
 | Layout principal (cabeçalho, rodapé e área de conteúdo) | ✅ Feito — ver [capturas de tela](#capturas-de-tela) abaixo |
