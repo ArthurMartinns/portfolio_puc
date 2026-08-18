@@ -20,7 +20,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — Portfólio`,
-  description: "Portfólio profissional: projetos, experiências e contato.",
+  description: "Portfólio de Arthur Martins, engenheiro de software com foco em Java, Spring Boot, React e TypeScript.",
 };
 
 const noFlashScript = `

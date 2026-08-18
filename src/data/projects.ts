@@ -2,26 +2,23 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
-    slug: "projeto-um",
-    name: "Nome do Projeto 1",
-    date: "2024-03",
+    slug: "portfolio-pessoal",
+    name: "Portfólio Pessoal",
     description: {
-      pt: "Descrição breve do projeto: qual problema ele resolve e qual foi o seu papel no desenvolvimento.",
-      en: "Short project description: what problem it solves and what your role was in building it.",
+      pt: "Portfólio pessoal criado para apresentar minha trajetória profissional, experiências, habilidades e principais projetos.",
+      en: "Personal portfolio created to showcase my professional background, experiences, skills and main projects.",
     },
-    technologies: ["HTML", "CSS", "JavaScript"],
-    githubUrl: "https://github.com/seu-usuario/projeto-um",
-    demoUrl: "https://projeto-um.exemplo.com",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    githubUrl: "https://github.com/ArthurMartinns/meuPortfolio",
   },
   {
-    slug: "projeto-dois",
-    name: "Nome do Projeto 2",
-    date: "2024-09",
+    slug: "library-api",
+    name: "Library API",
     description: {
-      pt: "Descrição breve do projeto: qual problema ele resolve e qual foi o seu papel no desenvolvimento.",
-      en: "Short project description: what problem it solves and what your role was in building it.",
+      pt: "API REST para gerenciar livros, autores e usuários, com autenticação OAuth2/JWT, controle de acesso por perfis e documentação Swagger.",
+      en: "REST API to manage books, authors and users, with OAuth2/JWT authentication, role-based access control and Swagger docs.",
     },
-    technologies: ["React", "Node.js", "PostgreSQL"],
-    githubUrl: "https://github.com/seu-usuario/projeto-dois",
+    technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker", "OAuth2/JWT", "Swagger"],
+    githubUrl: "https://github.com/ArthurMartinns/libraryAPI",
   },
 ];

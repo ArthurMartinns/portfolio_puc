@@ -5,7 +5,7 @@ export type LocalizedText = Record<Locale, string>;
 export interface Project {
   slug: string;
   name: string;
-  date: string;
+  date?: string;
   description: LocalizedText;
   technologies: string[];
   githubUrl: string;
@@ -18,4 +18,9 @@ export interface Experience {
   role: LocalizedText;
   period: LocalizedText;
   description: LocalizedText;
+  employmentType: LocalizedText;
+  location: LocalizedText;
+  workMode: LocalizedText;
+  highlights: Record<Locale, string[]>;
+  technologies?: string[];
 }

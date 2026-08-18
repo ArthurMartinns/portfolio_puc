@@ -4,7 +4,6 @@ import { useLanguage } from "@/context/language-context";
 import { dictionary } from "@/data/content";
 import { projects } from "@/data/projects";
 import { formatMonthYear } from "@/lib/format";
-import { ProjectMedia } from "@/components/project-media";
 import { ExternalLinkIcon, GithubIcon } from "@/components/icons";
 
 export default function ProjectsPage() {
@@ -27,15 +26,13 @@ export default function ProjectsPage() {
             <span className="absolute -left-[45px] top-0 flex h-7 w-7 items-center justify-center rounded-sm border border-accent bg-background font-mono text-[10px] font-semibold text-accent sm:-left-[53px]">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <p className="font-mono text-xs uppercase tracking-wide text-muted">
-              {formatMonthYear(project.date, locale)}
-            </p>
+            {project.date && (
+              <p className="font-mono text-xs uppercase tracking-wide text-muted">
+                {formatMonthYear(project.date, locale)}
+              </p>
+            )}
 
             <div className="corner-frame mt-3 overflow-hidden rounded-sm border border-border bg-surface">
-              <div className="aspect-video w-full overflow-hidden border-b border-border">
-                <ProjectMedia project={project} locale={locale} />
-              </div>
-
               <div className="p-5 sm:p-6">
                 <h2 className="text-xl font-semibold tracking-tight">{project.name}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{project.description[locale]}</p>
