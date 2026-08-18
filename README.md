@@ -6,6 +6,8 @@ Website de portfólio profissional desenvolvido para o Laboratório 1 — Projet
 
 ## Sumário
 
+- [Checklist da entrega (Laboratório 1)](#checklist-da-entrega-laboratório-1)
+- [Capturas de tela](#capturas-de-tela)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Dependências e bibliotecas](#dependências-e-bibliotecas)
 - [Estrutura de diretórios](#estrutura-de-diretórios)
@@ -13,6 +15,28 @@ Website de portfólio profissional desenvolvido para o Laboratório 1 — Projet
 - [Configuração do formulário de contato](#configuração-do-formulário-de-contato)
 - [Deploy](#deploy)
 - [Personalizando este modelo](#personalizando-este-modelo)
+
+## Checklist da entrega (Laboratório 1)
+
+| Item | Status |
+| --- | --- |
+| Criação do repositório GitHub com README inicial | ✅ Feito |
+| Wireframes das páginas no Figma (média fidelidade) | ⬜ Pendente — adicionar link do Figma aqui |
+| Protótipo inicial do front-end (Next.js/React + Tailwind CSS) | ✅ Feito |
+| Implementação da navegação (estrutura de páginas e links entre seções) | ✅ Feito — ver [Header](./src/components/header.tsx) |
+| Layout principal (cabeçalho, rodapé e área de conteúdo) | ✅ Feito — ver [capturas de tela](#capturas-de-tela) abaixo |
+
+> ⚠️ Falta apenas anexar o link dos wireframes do Figma antes de enviar esta entrega.
+
+## Capturas de tela
+
+| Sobre mim | Projetos |
+| --- | --- |
+| ![Página Sobre Mim](./docs/screenshots/sobre-mim.jpg) | ![Página Projetos](./docs/screenshots/projetos.jpg) |
+
+| Experiências | Contato |
+| --- | --- |
+| ![Página Experiências](./docs/screenshots/experiencias.jpg) | ![Página Contato](./docs/screenshots/contato.jpg) |
 
 ## Tecnologias utilizadas
 
