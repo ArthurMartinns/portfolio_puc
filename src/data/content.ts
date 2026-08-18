@@ -1,15 +1,15 @@
 import type { Locale } from "@/lib/types";
 
 export const siteConfig = {
-  name: "Seu Nome",
+  name: "Arthur Martins",
   role: {
-    pt: "Engenheiro(a) de Software",
+    pt: "Engenheiro de Software",
     en: "Software Engineer",
   },
-  email: "seuemail@exemplo.com",
-  whatsapp: "5500000000000",
-  linkedin: "https://www.linkedin.com/in/seu-usuario",
-  github: "https://github.com/seu-usuario",
+  email: "arthurmartinsdev@gamil.com",
+  whatsapp: "5531997002244",
+  linkedin: "https://www.linkedin.com/in/arthurmarrtins",
+  github: "https://github.com/ArthurMartinns",
 };
 
 export const dictionary = {
@@ -29,7 +29,7 @@ export const dictionary = {
     ctaContact: { pt: "Fale comigo", en: "Get in touch" },
     aboutTitle: { pt: "Sobre mim", en: "About me" },
     aboutBody: {
-      pt: "Sou estudante de Engenharia de Software com interesse em desenvolvimento web e boas práticas de arquitetura de sistemas. Gosto de transformar problemas reais em soluções simples, testáveis e fáceis de manter. Atualmente busco oportunidades de estágio e projetos onde eu possa aprender continuamente e contribuir com times multidisciplinares.",
+      pt: "Sou engenheiro de software em formação pela PUC Minas. Meu foco é desenvolver backends escaláveis com Java e Spring Boot, somando a experiência profissional que adquiri com React e TypeScript para entregar soluções robustas, claras e de alta qualidade.",
       en: "I'm a Software Engineering student interested in web development and solid system architecture practices. I enjoy turning real problems into simple, testable and maintainable solutions. I'm currently looking for internship opportunities and projects where I can keep learning and contribute to cross-functional teams.",
     },
     focusTitle: { pt: "Áreas de atuação", en: "Focus areas" },
@@ -86,7 +86,6 @@ export const dictionary = {
   },
   footer: {
     rights: { pt: "Todos os direitos reservados.", en: "All rights reserved." },
-    builtWith: { pt: "Desenvolvido com Next.js e Tailwind CSS.", en: "Built with Next.js and Tailwind CSS." },
   },
 } as const;
 

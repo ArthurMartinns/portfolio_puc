@@ -22,7 +22,6 @@ export function Footer() {
           <p>
             © {year} {siteConfig.name}. {dictionary.footer.rights[locale]}
           </p>
-          <p className="mt-1">{dictionary.footer.builtWith[locale]}</p>
         </div>
 
         <div className="flex items-center gap-2">
