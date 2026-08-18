@@ -26,7 +26,6 @@ Website de portfólio profissional desenvolvido para o Laboratório 1 — Projet
 | Implementação da navegação (estrutura de páginas e links entre seções) | ✅ Feito — ver [Header](./src/components/header.tsx) |
 | Layout principal (cabeçalho, rodapé e área de conteúdo) | ✅ Feito — ver [capturas de tela](#capturas-de-tela) abaixo |
 
-> ⚠️ Falta apenas anexar o link dos wireframes do Figma antes de enviar esta entrega.
 
 ## Capturas de tela
 
